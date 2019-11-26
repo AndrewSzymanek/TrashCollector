@@ -144,8 +144,7 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
-                                   .ToList(), "Name", "Name");
+            ViewBag.Name = context.Roles.ToList();
             return View();
         }
 
@@ -170,7 +169,12 @@ namespace TrashCollector.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
+
                     return RedirectToAction("Index", "Home");
+                    //return to either customer controller or employee controller
+                    //RedirectToAction is (action, controller)
+                    //use authorize attribute 
+                    //[Authorize(Role = "Employee")] in EmployeeController
                 }
                 AddErrors(result);
             }
