@@ -22,6 +22,9 @@ namespace TrashCollector.Models
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        //public DbSet<ZipCode> Zip Codes { get; set; }
+        //public DbSet<State> States { get; set; }
+        //public DbSet<PickupDay> Pickup Days { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

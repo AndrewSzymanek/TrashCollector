@@ -36,10 +36,10 @@ namespace TrashCollector.Models
         [DisplayName("Extra Pickup Day")]
         public string extraPickupDay { get; set; }
 
-        [DisplayName("Start Date")]
+        [DisplayName("Suspension Start Date")]
         public string startDate { get; set; }
 
-        [DisplayName("End Date")]
+        [DisplayName("Suspension End Date")]
         public string endDate { get; set; }
 
     }
