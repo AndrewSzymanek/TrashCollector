@@ -169,15 +169,15 @@ namespace TrashCollector.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    if (model.UserRoles == "customer")
+                   if (model.UserRoles == "Customer")
                     {
-                        return RedirectToAction("Create", "Customer");
+                        return RedirectToAction("Create", "Customers");
                     }
-                    else if(model.UserRoles == "employee")
+                   if(model.UserRoles == "Employee")
                     {
-                        return RedirectToAction("Create", "Employee");
+                        return RedirectToAction("Create", "Employees");
                     }
-                    
+  
                     //return to either customer controller or employee controller
                     //RedirectToAction is (action, controller)
                     //use authorize attribute 
