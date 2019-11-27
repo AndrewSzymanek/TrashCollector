@@ -52,7 +52,7 @@ namespace TrashCollector.Controllers
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Customers", new { customer.id });
             }
 
             return View(customer);
