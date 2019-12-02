@@ -19,7 +19,7 @@ namespace TrashCollector.Controllers
         public ActionResult Index()
         {
             string userId = User.Identity.GetUserId();
-            Employee employeeInDb = db.Employees.Where(e => e.ApplicationId == userId).SingleOrDefault();
+            Employee employeeInDb = db.Employees.Where(e => e.ApplicationId == userId).Single();
             return View(employeeInDb);
         }
 
