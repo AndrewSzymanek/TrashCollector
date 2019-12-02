@@ -20,7 +20,7 @@ namespace TrashCollector.Controllers
         {
             string userId = User.Identity.GetUserId();
             Customer customerInDB = db.Customers.Where(c => c.ApplicationId == userId).SingleOrDefault();
-            return View(customerInDB);
+            return View("Index", customerInDB);
         }
 
         // GET: Customers/Details/5
@@ -89,7 +89,7 @@ namespace TrashCollector.Controllers
             {
                 db.Entry(customer).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Details", "Customers", customer.id);
+                return View("Details",  customer);
             }
             return View(customer);
         }
