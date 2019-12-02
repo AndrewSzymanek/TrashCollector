@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -17,7 +18,8 @@ namespace TrashCollector.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            Customer customerInDB = db.Customers.Where(x => x.ApplicationId == userId).ToList();
+            string userId = User.Identity.GetUserId();
+            Customer customerInDB = db.Customers.Where(c => c.ApplicationId == userId).SingleOrDefault();
             return View(customerInDB);
         }
 
@@ -47,12 +49,12 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,address,city,state,zipCode,pickupDay,balance,extraPickupDay,startDate,endDate")] Customer customer)
+        public ActionResult Create(Customer customer)
         {
             if (ModelState.IsValid)
             {
-                //var customerLoggedIn = User.Identity.GetUserId();
-                //customer.ApplicationId = customerLoggedIn;
+                var customerLoggedIn = User.Identity.GetUserId();
+                customer.ApplicationId = customerLoggedIn;
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Details", "Customers", new { customer.id });

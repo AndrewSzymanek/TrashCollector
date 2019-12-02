@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201911252114436_InitialMigraton.Designer.cs">
       <DependentUpon>201911252114436_InitialMigraton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912021451444_AddedForeignKey.cs" />
+    <Compile Include="Migrations\201912021451444_AddedForeignKey.Designer.cs">
+      <DependentUpon>201912021451444_AddedForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -274,6 +278,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201911252114436_InitialMigraton.resx">
       <DependentUpon>201911252114436_InitialMigraton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912021451444_AddedForeignKey.resx">
+      <DependentUpon>201912021451444_AddedForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
