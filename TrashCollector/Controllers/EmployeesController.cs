@@ -20,7 +20,11 @@ namespace TrashCollector.Controllers
         {
             string userId = User.Identity.GetUserId();
             Employee employeeInDb = db.Employees.Where(e => e.ApplicationId == userId).Single();
-            return View(employeeInDb);
+            List<Customer> customersInZip = db.Customers.Where(c => c.zipCode == employeeInDb.zipCode).ToList();
+            //find customers where employee zip == customer zip
+            //take those customers and only display those whose pickup day = today's day
+
+            return View(customersInZip);
         }
 
         // GET: Employees/Details/5
@@ -57,7 +61,7 @@ namespace TrashCollector.Controllers
                 employee.ApplicationId = employeeLoggedIn;
                 db.Employees.Add(employee);
                 db.SaveChanges();
-                return RedirectToAction("Details", "Employees", employee.id);
+                return RedirectToAction("Index", "Employees", employee.id);
             }
 
             return View(employee);
