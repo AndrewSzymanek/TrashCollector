@@ -18,13 +18,15 @@ namespace TrashCollector.Controllers
         // GET: Employees
         public ActionResult Index()
         {
+            DateTime todayDay = DateTime.Today;
             string userId = User.Identity.GetUserId();
             Employee employeeInDb = db.Employees.Where(e => e.ApplicationId == userId).Single();
             List<Customer> customersInZip = db.Customers.Where(c => c.zipCode == employeeInDb.zipCode).ToList();
+            List<Customer> customersInZipOnDay = customersInZip.Where(c => c.pickupDay == todayDay.ToString()).ToList();
             //find customers where employee zip == customer zip
             //take those customers and only display those whose pickup day = today's day
 
-            return View(customersInZip);
+            return View(customersInZipOnDay);
         }
 
         // GET: Employees/Details/5
