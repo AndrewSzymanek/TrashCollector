@@ -17,7 +17,8 @@ namespace TrashCollector.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            Customer customerInDB = db.Customers.Where(x => x.ApplicationId == userId).ToList();
+            return View(customerInDB);
         }
 
         // GET: Customers/Details/5
@@ -50,6 +51,8 @@ namespace TrashCollector.Controllers
         {
             if (ModelState.IsValid)
             {
+                //var customerLoggedIn = User.Identity.GetUserId();
+                //customer.ApplicationId = customerLoggedIn;
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Details", "Customers", new { customer.id });

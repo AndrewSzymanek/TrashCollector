@@ -42,7 +42,10 @@ namespace TrashCollector.Models
 
         [DisplayName("Suspension End Date")]
         public string endDate { get; set; }
-        //[ForeignKey("")]
+
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
     }
 }
