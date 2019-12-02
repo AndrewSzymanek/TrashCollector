@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201912021451444_AddedForeignKey.Designer.cs">
       <DependentUpon>201912021451444_AddedForeignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912021508515_ForeignKeyOnEmployee.cs" />
+    <Compile Include="Migrations\201912021508515_ForeignKeyOnEmployee.Designer.cs">
+      <DependentUpon>201912021508515_ForeignKeyOnEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -281,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912021451444_AddedForeignKey.resx">
       <DependentUpon>201912021451444_AddedForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912021508515_ForeignKeyOnEmployee.resx">
+      <DependentUpon>201912021508515_ForeignKeyOnEmployee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

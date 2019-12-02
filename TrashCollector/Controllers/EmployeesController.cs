@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -17,7 +18,9 @@ namespace TrashCollector.Controllers
         // GET: Employees
         public ActionResult Index()
         {
-            return View(db.Employees.ToList());
+            string userId = User.Identity.GetUserId();
+            Employee employeeInDb = db.Employees.Where(e => e.ApplicationId == userId).SingleOrDefault();
+            return View(employeeInDb);
         }
 
         // GET: Employees/Details/5
@@ -46,13 +49,15 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,zipCode")] Employee employee)
+        public ActionResult Create(Employee employee)
         {
             if (ModelState.IsValid)
             {
+                var employeeLoggedIn = User.Identity.GetUserId();
+                employee.ApplicationId = employeeLoggedIn;
                 db.Employees.Add(employee);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Employees", employee.id);
             }
 
             return View(employee);
