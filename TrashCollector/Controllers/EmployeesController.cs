@@ -27,6 +27,17 @@ namespace TrashCollector.Controllers
             return View("Index", customersInZipOnDay);
         }
 
+        public ActionResult DayIndex(string day)
+        {
+            string userId = User.Identity.GetUserId();
+            Employee employeeInDb = db.Employees.Where(e => e.ApplicationId == userId).Single();
+            List<Customer> customersInZip = db.Customers.Where(c => c.zipCode == employeeInDb.zipCode).ToList();
+            List<Customer> customersInZipOnDay = customersInZip.Where(c => c.pickupDay == day).ToList();
+            return View("DayIndex", customersInZipOnDay);
+        }
+
+      
+
         // GET: Employees/Details/5
         public ActionResult Details(int? id)
         {
@@ -39,7 +50,7 @@ namespace TrashCollector.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View("Details", employee);
         }
 
         // GET: Employees/Create

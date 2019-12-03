@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<TrashCollector.Models.Customer>
-@* This is for employees to see *@
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "DayIndex";
 }
 
-<h2>Index of customers for today</h2>
+<h2>Choose A Day To View Customers</h2>
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
+
 <table class="table">
+
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.name)
@@ -79,20 +77,31 @@
             </td>
             <td>
                 @*@Html.ActionLink("Edit", "Edit", new { id = item.id }) |*@
-                @*@Html.ActionLink("Details", "Details",  item)*@
+                @*@Html.ActionLink("Details", "Details", new { id = item.id }) |*@
                 @Html.ActionLink("Delete", "Delete", new { id = item.id })
             </td>
         </tr>
     }
-    <div>
-        @Html.ActionLink("Monday", "DayIndex", "Monday")
-        @Html.ActionLink("Tuesday", "DayIndex", "Tuesday")
-        @Html.ActionLink("Wednesday", "DayIndex", "Wednesday")
-        @Html.ActionLink("Thursday", "DayIndex")
-        @Html.ActionLink("Friday", "DayIndex")
-        @Html.ActionLink("Saturday", "DayIndex")
-        @Html.ActionLink("Sunday", "DayIndex")
-
-    </div>
 
 </table>
+
+<div>
+    @Html.ActionLink("Monday", "DayIndex", new { day = "Monday" })
+    @Html.ActionLink("Tuesday", "DayIndex", new { day = "Tuesday" })
+    @Html.ActionLink("Wednesday", "DayIndex", "Wednesday")
+    @Html.ActionLink("Thursday", "DayIndex")
+    @Html.ActionLink("Friday", "DayIndex")
+    @Html.ActionLink("Saturday", "DayIndex")
+    @Html.ActionLink("Sunday", "DayIndex")
+
+</div>
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
