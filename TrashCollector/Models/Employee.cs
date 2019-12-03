@@ -15,10 +15,9 @@ namespace TrashCollector.Models
 
         [DisplayName ("Name")]
         public string name { get; set; }
+
         [DisplayName ("Zip Code")]
         public int zipCode { get; set; }
-        [DisplayName("Balance")]
-        public double balance { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }

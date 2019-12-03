@@ -23,7 +23,6 @@ namespace TrashCollector.Controllers
             Employee employeeInDb = db.Employees.Where(e => e.ApplicationId == userId).Single();
             List<Customer> customersInZip = db.Customers.Where(c => c.zipCode == employeeInDb.zipCode).ToList();
             List<Customer> customersInZipOnDay = customersInZip.Where(c => c.pickupDay == todayDay.ToString()).ToList();
-
             return View("Index", customersInZipOnDay);
         }
 
@@ -36,6 +35,12 @@ namespace TrashCollector.Controllers
             return View("DayIndex", customersInZipOnDay);
         }
 
+        public ActionResult UpdateBalance()
+        {
+            
+
+            return View();
+        }
       
 
         // GET: Employees/Details/5
@@ -81,16 +86,8 @@ namespace TrashCollector.Controllers
         // GET: Employees/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Employee employee = db.Employees.Find(id);
-            if (employee == null)
-            {
-                return HttpNotFound();
-            }
-            return View(employee);
+            var customerToEdit = db.Customers.Where(c => c.id == id).SingleOrDefault();
+            return View(customerToEdit);
         }
 
         // POST: Employees/Edit/5
@@ -98,15 +95,17 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name,zipCode")] Employee employee)
+        public ActionResult Edit(int id, Customer customer)
         {
-            if (ModelState.IsValid)
+            var customerToEdit = db.Customers.Where(c => c.id == id).SingleOrDefault();
+            customerToEdit.isCompleted = customer.isCompleted;
+            if (customerToEdit.isCompleted == true)
             {
-                db.Entry(employee).State = EntityState.Modified;
+                customerToEdit.balance += 10.0;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Employees");
             }
-            return View(employee);
+           return RedirectToAction("Index", "Employees");
         }
 
         // GET: Employees/Delete/5

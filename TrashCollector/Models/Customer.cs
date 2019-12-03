@@ -34,6 +34,9 @@ namespace TrashCollector.Models
         [DisplayName("Balance")]
         public double balance { get; set; }
 
+        [DisplayName("Mark Completed")]
+        public bool isCompleted { get; set; }
+
         [DisplayName("Extra Pickup Day")]
         public string extraPickupDay { get; set; }
 

@@ -187,6 +187,18 @@
     <Compile Include="Migrations\201912021508515_ForeignKeyOnEmployee.Designer.cs">
       <DependentUpon>201912021508515_ForeignKeyOnEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912032001208_AddedisCompletedBool.cs" />
+    <Compile Include="Migrations\201912032001208_AddedisCompletedBool.Designer.cs">
+      <DependentUpon>201912032001208_AddedisCompletedBool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912032036137_DeleteEmployeeBoolAddCustomerBool.cs" />
+    <Compile Include="Migrations\201912032036137_DeleteEmployeeBoolAddCustomerBool.Designer.cs">
+      <DependentUpon>201912032036137_DeleteEmployeeBoolAddCustomerBool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912032037370_deleted employee balance.cs" />
+    <Compile Include="Migrations\201912032037370_deleted employee balance.Designer.cs">
+      <DependentUpon>201912032037370_deleted employee balance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -289,6 +301,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912021508515_ForeignKeyOnEmployee.resx">
       <DependentUpon>201912021508515_ForeignKeyOnEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912032001208_AddedisCompletedBool.resx">
+      <DependentUpon>201912032001208_AddedisCompletedBool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912032036137_DeleteEmployeeBoolAddCustomerBool.resx">
+      <DependentUpon>201912032036137_DeleteEmployeeBoolAddCustomerBool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912032037370_deleted employee balance.resx">
+      <DependentUpon>201912032037370_deleted employee balance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
