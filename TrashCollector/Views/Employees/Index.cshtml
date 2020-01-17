@@ -6,9 +6,6 @@
 
 <h2>Index of customers for today</h2>
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
 <table class="table">
     <tr>
         <th>
@@ -86,8 +83,6 @@
         @Html.DisplayFor(modelItem => item.isCompleted)
     </td>
     <td>
-        @*@Html.ActionLink("Edit", "Edit", new { id = item.id }) |*@
-        @*@Html.ActionLink("Details", "Details",  item)*@
         @Html.ActionLink("Edit", "Edit", new { id = item.id })
         @Html.ActionLink("Delete", "Delete", new { id = item.id })
     </td>
