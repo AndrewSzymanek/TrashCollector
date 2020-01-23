@@ -1,102 +1,11 @@
-﻿@model IEnumerable<TrashCollector.Models.Customer>
-@* This is for employees to see- employees view *@
+﻿@model TrashCollector.Models.Employee
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index of customers for today</h2>
+<h2>Employee Home Page</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.city)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.state)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.zipCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.pickupDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.balance)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.extraPickupDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.startDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.endDate)
-        </th>
-      
-        <th>
-            @Html.DisplayNameFor(model => model.isCompleted)
-        </th>
-        <th>
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.address)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.city)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.state)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.zipCode)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.pickupDay)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.balance)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.extraPickupDay)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.startDate)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.endDate)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.isCompleted)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.id })
-        @Html.ActionLink("Delete", "Delete", new { id = item.id })
-    </td>
-</tr>
-    }
-    <div>
-        @Html.ActionLink("Monday", "DayIndex", "Employees", new { day = "Monday" }, null)
-        @Html.ActionLink("Tuesday", "DayIndex", "Employees", new { day = "Tuesday" }, null)
-        @Html.ActionLink("Wednesday", "DayIndex", "Employees", new { day = "Wednesday" }, null)
-        @Html.ActionLink("Thursday", "DayIndex", "Employees", new { day = "Thursday" }, null)
-        @Html.ActionLink("Friday", "DayIndex", "Employees", new { day = "Friday" }, null)
-        @Html.ActionLink("Saturday", "DayIndex", "Employees", new { day = "Saturday" }, null)
-        @Html.ActionLink("Sunday", "DayIndex", "Employees", new { day = "Sunday" }, null)
-
-    </div>
-
-</table>
+<h6>Actions </h6>
+<ul>
+    <li>@Html.ActionLink("View Customers", "CustomersIndex", "Employees")</li>
+</ul>
