@@ -18,10 +18,7 @@ namespace TrashCollector.Controllers
             {
                 return RedirectToAction("Index", "Customers");
             }
-            //else if (User.IsInRole(null))
-            //{
-            //    return View();
-            //}
+
             return View();
         }
 

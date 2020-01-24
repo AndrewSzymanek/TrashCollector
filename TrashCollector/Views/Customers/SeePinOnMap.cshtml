@@ -1,0 +1,53 @@
+﻿@model TrashCollector.Models.Customer
+@{
+    ViewBag.Title = "SeePinOnMap";
+}
+
+<h2>Customer Location</h2>
+
+<style>
+
+    #map {
+        height: 50vh;
+        width: 100%;
+        margin-top: 110px;
+        margin-bottom: 57px;
+    }
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+    }
+</style>
+
+<div id="map"></div>
+<script>
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 42.97353, lng: -87.8565108 },
+            zoom: 4
+        });
+        var customerLocation = new google.maps.Marker({
+            position: { lat: 42.97353, lng: -87.8565108 },
+            map: map
+        });
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP10t5CTr3xgTRIrPVhlRxCzHHdv-XLW4&callback=initMap" ></script>
+
+@* async defer and callback = initMap *@

@@ -128,5 +128,11 @@ namespace TrashCollector.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult SeePinOnMap()
+        {
+            //Customer customerToView = db.Customers.Where(c => c.id == id).SingleOrDefault();
+            return View();
+        }
     }
 }
